@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>Erp</display-name>
+ 
+ <servlet>
+  <servlet-name>Login</servlet-name>
+   <servlet-class>com.yf.erp.main.Login</servlet-class>
+ </servlet>
+ 
+ <servlet-mapping>
+   <servlet-name>Login</servlet-name>
+   <url-pattern>/login</url-pattern>
+ </servlet-mapping>
+ 
+ 
+  <servlet>
+  <servlet-name>EmployeeList</servlet-name>
+   <servlet-class>com.yf.erp.main.EmployeeList</servlet-class>
+ </servlet>
+ 
+ <servlet-mapping>
+   <servlet-name>EmployeeList</servlet-name>
+   <url-pattern>/employeeList</url-pattern>
+ </servlet-mapping>
+ 
+  <servlet>
+  <servlet-name>AddEmployee</servlet-name>
+   <servlet-class>com.yf.erp.main.AddEmployee</servlet-class>
+ </servlet>
+ 
+ <servlet-mapping>
+   <servlet-name>AddEmployee</servlet-name>
+   <url-pattern>/addEmployee</url-pattern>
+ </servlet-mapping>
+ 
+ 
+  <servlet>
+  <servlet-name>DelEmployee</servlet-name>
+   <servlet-class>com.yf.erp.main.DelEmployee</servlet-class>
+ </servlet>
+ 
+ <servlet-mapping>
+   <servlet-name>DelEmployee</servlet-name>
+   <url-pattern>/delEmployee</url-pattern>
+ </servlet-mapping>
+ 
+ 
+</web-app>
