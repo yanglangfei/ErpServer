@@ -71,5 +71,24 @@ public class EmployeeDao{
 	
 	
 	
+	public int updateEmployee(Employee employee){
+		int restlt = 0;
+		SqlSession session=null;
+		try {
+			session=DaoAccess.getSession();
+			restlt=session.update("Employee.updateEmployee",employee);
+			session.commit();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally{
+			if(session!=null){
+				session.close();
+			}
+		}
+		return restlt;
+	}
+	
+	
+	
 
 }

@@ -2,19 +2,14 @@
  * 
  */
 package com.yf.erp.dao;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.session.SqlSession;
 
 import com.yf.erp.bean.User;
 import com.yf.erp.db.DaoAccess;
-import com.yf.erp.util.MD5Util;
-
 /**
  * @author 杨朗飞
  *  2016年11月2日  下午6:29:32
@@ -44,16 +39,18 @@ public class UserDao {
 	
 	
 	
-	public void queryAll(){
+	public List<User> queryAll(){
+		List<User> user=new ArrayList<User>();
 		SqlSession session = null;
 		try {
 			 session = DaoAccess.getSession();
-			 List<User> user=session.selectList("com.yf.erp.config.user.selectUser");
+			 user=session.selectList("com.yf.erp.config.user.selectUser");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally{
 			session.close();
 		}
+		return user;
 	}
 	
 	

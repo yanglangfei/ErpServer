@@ -31,11 +31,42 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateEmployee" parameterType="com.yf.erp.bean.Employee">
 		UPDATE employee
 		<set>
-			<if test="name != null and name != ''">
-				name=#{name},
+			<if test="no != null and no != ''">
+				no=#{no},
 			</if>
-			<if test="password!=null and password!=''">
-				password=#{password}
+			<if test="name!=null and name!=''">
+				name=#{name}
+			</if>
+			<if test="sex!=null and sex!=''">
+				sex=#{sex}
+			</if>
+			<if test="weight!=null and weight!=''">
+				weight=#{name}
+			</if>
+			<if test="birth!=null and birth!=''">
+				birth=#{birth}
+			</if>
+			<if test="homeAddress!=null and homeAddress!=''">
+				homeAddress=#{homeAddress}
+			</if>
+			<if test="localAddress!=null and localAddress!=''">
+				localAddress=#{localAddress}
+			</if>
+			
+			<if test="headFace!=null and headFace!=''">
+				headFace=#{headFace}
+			</if>
+			<if test="joinDate!=null and joinDate!=''">
+				joinDate=#{joinDate}
+			</if>
+			<if test="delop!=null and delop!=''">
+				delop=#{delop}
+			</if>
+			<if test="scoreId!=null and scoreId!=''">
+				scoreId=#{scoreId}
+			</if>
+			<if test="teamId!=null and teamId!=''">
+				teamId=#{teamId}
 			</if>
 		</set>
 		WHERE id=#{id}
