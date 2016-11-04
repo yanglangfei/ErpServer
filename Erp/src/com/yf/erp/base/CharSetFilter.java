@@ -36,9 +36,9 @@ public class CharSetFilter implements Filter {
 		//获取初始化参数
 		String encode=filtConfig.getInitParameter("encode");
 		//对请求 返回参数进行编码设置
-		request.setCharacterEncoding(encode);
-		response.setCharacterEncoding(encode);
-		request.setAttribute("name", "张三");
+		req.setCharacterEncoding(encode);
+		resp.setCharacterEncoding(encode);
+		req.setAttribute("name", "张三");
 		//放行访问  ---让请求继续进行
 		//chain.doFilter(request, response);
 		

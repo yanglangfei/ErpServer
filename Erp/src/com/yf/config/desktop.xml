@@ -13,23 +13,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<select id="selectDesktop" resultType="com.yf.erp.bean.Desktop">
-		select * from user
+		select * from desktop
 	</select>
 
 
 	<select id="selectById" parameterType="int" resultType="com.yf.erp.bean.Desktop">
-		select *
+		desktop *
 		from user where id=#{id}
 	</select>
 	
 		<select id="selectByName" parameterType="String" resultType="com.yf.erp.bean.Desktop">
 		select *
-		from user where userName=#{userName}
+		from desktop where userName=#{userName}
 	</select>
 
 
 	<update id="updateDesktop" parameterType="com.yf.erp.bean.Desktop">
-		UPDATE user
+		UPDATE desktop
 		<set>
 			<if test="name != null and name != ''">
 				name=#{name},
@@ -42,14 +42,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 
 
-	<insert id="addDesktop" parameterType="com.yf.erp.bean.Desktop" useGeneratedKeys="true" keyProperty="id" >
-		INSERT INTO user
+	<insert id="addDesktop" parameterType="com.yf.erp.bean.Desktop"  useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO desktop
 		(userName,password) VALUES (#{userName},#{password})
 	</insert>
 
 
 	<delete id="deleteDesktop" parameterType="int">
-		DELETE FROM user WHERE id=#{id}
+		DELETE FROM desktop WHERE id=#{id}
 	</delete>
 
 

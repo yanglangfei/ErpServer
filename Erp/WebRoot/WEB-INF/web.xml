@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
   <display-name>Erp</display-name>
- 
+   
  <servlet>
   <servlet-name>Login</servlet-name>
    <servlet-class>com.yf.erp.main.Login</servlet-class>
@@ -15,7 +15,7 @@
  
   <servlet>
   <servlet-name>EmployeeList</servlet-name>
-   <servlet-class>com.yf.erp.main.EmployeeList</servlet-class>
+   <servlet-class>com.yf.erp.main.emp.EmployeeList</servlet-class>
  </servlet>
  
  <servlet-mapping>
@@ -25,7 +25,7 @@
  
   <servlet>
   <servlet-name>AddEmployee</servlet-name>
-   <servlet-class>com.yf.erp.main.AddEmployee</servlet-class>
+   <servlet-class>com.yf.erp.main.emp.AddEmployee</servlet-class>
  </servlet>
  
  <servlet-mapping>
@@ -36,7 +36,7 @@
  
   <servlet>
   <servlet-name>DelEmployee</servlet-name>
-   <servlet-class>com.yf.erp.main.DelEmployee</servlet-class>
+   <servlet-class>com.yf.erp.main.emp.DelEmployee</servlet-class>
  </servlet>
  
  <servlet-mapping>
@@ -45,10 +45,9 @@
  </servlet-mapping>
  
  
- 
   <servlet>
   <servlet-name>UpdateEmployee</servlet-name>
-   <servlet-class>com.yf.erp.main.UpdateEmployee</servlet-class>
+   <servlet-class>com.yf.erp.main.emp.UpdateEmployee</servlet-class>
  </servlet>
  
  <servlet-mapping>
@@ -62,7 +61,7 @@
    <filter-class>com.yf.erp.base.CharSetFilter</filter-class>
     <init-param>
             <param-name>encode</param-name>
-            <param-value>utf-8</param-value>
+            <param-value>UTF-8</param-value>
         </init-param>
  </filter>
  
@@ -88,8 +87,29 @@
         <servlet-name>Auto</servlet-name>
         <url-pattern>/auto</url-pattern>
     </servlet-mapping>
+    
+    
+    <listener>
+      <listener-class>com.yf.erp.base.SessionListener</listener-class>
+    </listener>
+    
+    
+    <listener>
+      <listener-class>com.yf.erp.base.SessionBind</listener-class>
+    </listener>
+    
+    
+    <listener>
+      <listener-class>com.yf.erp.base.SessioAttWatch</listener-class>
+    </listener>
+ 
+  <listener>
+      <listener-class>com.yf.erp.base.RequestListener</listener-class>
+    </listener>
  
  
- 
+  <listener>
+      <listener-class>com.yf.erp.base.SessionSave</listener-class>
+    </listener>
  
 </web-app>

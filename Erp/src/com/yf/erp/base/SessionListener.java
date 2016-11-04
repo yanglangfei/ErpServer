@@ -1,4 +1,8 @@
 package com.yf.erp.base;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
@@ -10,18 +14,22 @@ import javax.servlet.http.HttpSessionListener;
  *
  */
 public class SessionListener implements HttpSessionListener {
+	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 
 	@Override
 	public void sessionCreated(HttpSessionEvent se) {
 		//session  ´´½¨
+		HttpSession session = se.getSession();
+		System.out.println("create:"+sdf.format(new Date(session.getCreationTime()))+"   "+session.getId());
 		
 	}
 
 	@Override
 	public void sessionDestroyed(HttpSessionEvent se) {
 		// session Ïú»Ù
-		
+		HttpSession session = se.getSession();
+		System.out.println("destory:"+sdf.format(new Date(session.getCreationTime()))+"   "+session.getId());
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.yf.erp.main;
+package com.yf.erp.main.emp;
 
 import java.io.IOException;
 import java.io.PrintWriter;
