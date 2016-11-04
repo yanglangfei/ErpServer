@@ -56,8 +56,8 @@ public class AddEmployee extends HttpServlet{
 							employee.setHeadFace(headFace);
 							employee.setJoinDate(joinDate);
 							employee.setDelop(dep);
-							employee.setScore(s);
-							employee.setTeam(team);
+							employee.setScoreId(s);
+							employee.setTeamId(team);
 							AddEmployeeService service=new AddEmployeeService();
 							int res=service.addEmployee(employee);
 							result=res>0 ?JsonUtil.getEmlloyeeList(null, Contast.RESULT_SUCCESS_CODE, Contast.RESULT_SUCCESS_MSG)

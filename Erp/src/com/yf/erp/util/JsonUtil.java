@@ -38,8 +38,8 @@ public class JsonUtil {
 	  	    	
 	  	    	emp.addProperty("joinDate",e.getJoinDate());
 	  	    	emp.addProperty("delop", e.getDelop());
-	  	    	emp.addProperty("score", e.getScore());
-	  	    	emp.addProperty("team", e.getTeam());
+	  	    	emp.addProperty("score", e.getScoreId());
+	  	    	emp.addProperty("team", e.getTeamId());
 	  	    	array.add(emp);
 	  		}
 	    }

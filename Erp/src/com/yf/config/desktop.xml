@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Desktop">
+
+
+	<resultMap type="com.yf.erp.bean.Desktop" id="desktop">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="password" property="password" />
+	</resultMap>
+
+
+	<select id="selectDesktop" resultType="com.yf.erp.bean.Desktop">
+		select * from user
+	</select>
+
+
+	<select id="selectById" parameterType="int" resultType="com.yf.erp.bean.Desktop">
+		select *
+		from user where id=#{id}
+	</select>
+	
+		<select id="selectByName" parameterType="String" resultType="com.yf.erp.bean.Desktop">
+		select *
+		from user where userName=#{userName}
+	</select>
+
+
+	<update id="updateDesktop" parameterType="com.yf.erp.bean.Desktop">
+		UPDATE user
+		<set>
+			<if test="name != null and name != ''">
+				name=#{name},
+			</if>
+			<if test="password!=null and password!=''">
+				password=#{password}
+			</if>
+		</set>
+		WHERE id=#{id}
+	</update>
+
+
+	<insert id="addDesktop" parameterType="com.yf.erp.bean.Desktop" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO user
+		(userName,password) VALUES (#{userName},#{password})
+	</insert>
+
+
+	<delete id="deleteDesktop" parameterType="int">
+		DELETE FROM user WHERE id=#{id}
+	</delete>
+
+
+
+
+
+
+</mapper>

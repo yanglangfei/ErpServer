@@ -10,6 +10,7 @@ import java.io.Serializable;
  *2016年11月2日  下午6:15:54
  */
 public class Employee implements Serializable {
+	private static long serialVersionUID = 1L;
 	/**
 	 *  id
 	 */
@@ -55,11 +56,11 @@ public class Employee implements Serializable {
 	/**
 	 *   综合业绩
 	 */
-	private int score;
+	private int scoreId;
 	/**
 	 *   所属团队
 	 */
-	private int team;
+	private int teamId;
 	
 	
 	public double getWeight() {
@@ -123,23 +124,23 @@ public class Employee implements Serializable {
 		this.joinDate = joinDate;
 	}
 	
-	public int getScore() {
-		return score;
-	}
-	public void setScore(int score) {
-		this.score = score;
-	}
 	public int getDelop() {
 		return delop;
 	}
 	public void setDelop(int delop) {
 		this.delop = delop;
 	}
-	public int getTeam() {
-		return team;
+	public int getScoreId() {
+		return scoreId;
 	}
-	public void setTeam(int team) {
-		this.team = team;
+	public void setScoreId(int scoreId) {
+		this.scoreId = scoreId;
+	}
+	public int getTeamId() {
+		return teamId;
+	}
+	public void setTeamId(int teamId) {
+		this.teamId = teamId;
 	}
 	
 	
