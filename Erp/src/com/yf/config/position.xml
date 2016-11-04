@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Position">
+	<resultMap type="com.yf.erp.bean.Position" id="position">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="password" property="password" />
+	</resultMap>
+
+
+	<select id="selectPosition" resultType="com.yf.erp.bean.Position">
+		select * from position
+	</select>
+
+
+	<select id="selectById" parameterType="int" resultType="com.yf.erp.bean.Position">
+		select *
+		from position where id=#{id}
+	</select>
+	
+		<select id="selectByName" parameterType="String" resultType="com.yf.erp.bean.Position">
+		select *
+		from position where userName=#{userName}
+	</select>
+
+
+	<update id="updatePosition" parameterType="com.yf.erp.bean.Position">
+		UPDATE position
+		<set>
+			<if test="no != null and no != ''">
+				no=#{no},
+			</if>
+			<if test="name!=null and name!=''">
+				name=#{name},
+			</if>
+			<if test="sex!=0">
+				sex=#{sex},
+			</if>
+			<if test="weight!=0">
+				weight=#{weight},
+			</if>
+			<if test="birth!=null and birth!=''">
+				birth=#{birth},
+			</if>
+			<if test="homeAddress!=null and homeAddress!=''">
+				homeAddress=#{homeAddress},
+			</if>
+			<if test="localAddress!=null and localAddress!=''">
+				localAddress=#{localAddress},
+			</if>
+			
+			<if test="headFace!=null and headFace!=''">
+				headFace=#{headFace},
+			</if>
+			<if test="joinDate!=null and joinDate!=''">
+				joinDate=#{joinDate},
+			</if>
+			<if test="delop!=0">
+				delop=#{delop},
+			</if>
+			<if test="scoreId!=0">
+				scoreId=#{scoreId},
+			</if>
+			<if test="teamId!=0">
+				teamId=#{teamId}
+			</if>
+		</set>
+		WHERE id=#{id}
+	</update>
+
+
+	<insert id="addPosition" parameterType="com.yf.erp.bean.Position" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO position
+		(no,name,sex,weight,birth,homeAddress,localAddress,headFace,joinDate,delop,scoreId,teamId)
+		 VALUES
+		(#{no},#{name},#{sex},#{weight},#{birth},#{homeAddress},#{localAddress},#{headFace},#{joinDate},#{delop},#{score}
+		,#{team})
+	</insert>
+
+
+	<delete id="delPosition" parameterType="int">
+		DELETE FROM position WHERE id=#{id}
+	</delete>
+
+
+
+
+
+
+</mapper>
