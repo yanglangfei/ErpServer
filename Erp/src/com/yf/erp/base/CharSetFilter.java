@@ -1,6 +1,7 @@
 package com.yf.erp.base;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -42,7 +43,13 @@ public class CharSetFilter implements Filter {
 		//chain.doFilter(request, response);
 		
 		//阻止访问   并将访问重定向到新的页面
-		resp.sendRedirect("http://www.baidu.com");
+		//resp.sendRedirect("http://www.baidu.com");
+		
+		
+		PrintWriter writer=response.getWriter();
+		writer.print("禁止访问!!");
+		writer.flush();
+		writer.close();
 		
 	}
 
