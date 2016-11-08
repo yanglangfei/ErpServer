@@ -1,8 +1,10 @@
 package com.yf.erp.dao;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
-import com.yf.erp.base.Position;
+
+import com.yf.erp.bean.Position;
 import com.yf.erp.db.DaoAccess;
 public class PositionDao {
 	
@@ -51,12 +53,12 @@ public class PositionDao {
 	 * @param id
 	 * @return    修改职位信息
 	 */
-	public int updatePosition(int id){
+	public int updatePosition(Position position){
 		SqlSession session = null;
 		int result=0;
 		try {
 			session=DaoAccess.getSession();
-			result=session.update("Position.updatePosition");
+			result=session.update("Position.updatePosition",position);
 			session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,6 +68,28 @@ public class PositionDao {
 			}
 		}
 		return result;
+	}
+	
+	/**
+	 * @param id
+	 * @return  删除部门信息
+	 */
+	public int delPosition(int id){
+		SqlSession session=null;
+		int result=0;
+		try {
+			session=DaoAccess.getSession();
+			result=session.update("Position.delPosition");
+			session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(session!=null){
+				session.close();
+			}
+		}
+		return result;
+		
 	}
 
 }

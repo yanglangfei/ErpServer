@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.yf.erp.base;
+package com.yf.erp.bean;
 
 import java.io.Serializable;
 
@@ -11,10 +11,26 @@ import java.io.Serializable;
  */
 public class Position implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	/**
+	 *  岗位id
+	 */
 	private int id;
-	
+	/**
+	 *   岗位名称 
+	 */
 	private String name;
+	/**
+	 *   所属部门
+	 */
+	private int deptId;
+
+	public int getDeptId() {
+		return deptId;
+	}
+
+	public void setDeptId(int deptId) {
+		this.deptId = deptId;
+	}
 
 	public int getId() {
 		return id;

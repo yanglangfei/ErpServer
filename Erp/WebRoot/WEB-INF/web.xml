@@ -91,39 +91,37 @@
     </servlet-mapping>
     
     
-    <listener>
-      <listener-class>com.yf.erp.base.SessionListener</listener-class>
-    </listener>
-    
-    
-    <listener>
-      <listener-class>com.yf.erp.base.SessionBind</listener-class>
-    </listener>
-    
-    
-    <listener>
-      <listener-class>com.yf.erp.base.SessioAttWatch</listener-class>
-    </listener>
- 
-  <listener>
-      <listener-class>com.yf.erp.base.RequestListener</listener-class>
-    </listener>
- 
- 
-  <listener>
-      <listener-class>com.yf.erp.base.SessionSave</listener-class>
-    </listener>
-    
-    
+    <!-- 定义404异常页面-->
     <error-page>
       <error-code>404</error-code>
       <location>/errpage1.jsp</location>
     </error-page>
     
-    
+    <!-- 定义空指针异常页面 -->
     <error-page>
-       <exception-type>java.lang.NullException</exception-type>
+       <exception-type>java.lang.NullPointerException</exception-type>
        <location>/nullpoint.jsp</location>
     </error-page>
+    
+    <!-- 设置session 超时时间  最大存活时间 -->
+    <session-config>
+      <session-timeout>10</session-timeout>
+      <cookie-config>
+      <max-age>100</max-age>
+      </cookie-config>
+    </session-config>
+    <listener>
+        <listener-class>com.yf.erp.base.WebListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>second</servlet-name>
+        <servlet-class>com.yf.erp.test.SecondQuery</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>second</servlet-name>
+        <url-pattern>/second</url-pattern>
+    </servlet-mapping>
+    
+    
  
 </web-app>

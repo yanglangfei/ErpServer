@@ -16,7 +16,6 @@ import com.yf.erp.service.LoginService;
 import com.yf.erp.util.Contast;
 import com.yf.erp.util.JsonUtil;
 import com.yf.erp.util.MD5Util;
-
 /**
  * @author 杨朗飞
  *    2016年11月3日  上午9:54:15
@@ -32,7 +31,6 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 		  this.doPost(req, resp);
 	}
-	
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)

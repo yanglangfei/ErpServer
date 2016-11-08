@@ -51,5 +51,49 @@ public class DesktopDao {
 		}
 		return result;
 	}
+	
+	/**
+	 * @param desktop
+	 * @return  更新部门信息
+	 */
+	public int updateDesktopInfo(Desktop desktop){
+		SqlSession session = null;
+		int result = 0;
+		try {
+			session=DaoAccess.getSession();
+			result=session.update("Desktop.updateDesktop",desktop);
+			session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(session!=null){
+				session.close();
+			}
+		}
+		return result;
+	}
+	
+	/**
+	 * @param id
+	 * @return  删除部门信息
+	 */
+	public int delDesktop(int id){
+		SqlSession session = null;
+		int result = 0;
+		try {
+			session=DaoAccess.getSession();
+			result=session.delete("Desktop.deleteDesktop",id);
+			session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(session!=null){
+				session.close();
+			}
+		}
+		return result;
+	}
+	
+
 
 }

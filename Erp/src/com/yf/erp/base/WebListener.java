@@ -1,7 +1,12 @@
 package com.yf.erp.base;
 
+import java.util.List;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author 杨朗飞
@@ -12,14 +17,36 @@ import javax.servlet.ServletContextListener;
 public class WebListener implements ServletContextListener {
 
 	@Override
-	public void contextDestroyed(ServletContextEvent arg0) {
+	public void contextDestroyed(ServletContextEvent config) {
 		//关闭tomcat
+		ServletContext content = config.getServletContext();
+		List<HttpSession> sessions=(List<HttpSession>) content.getAttribute("session");
+		List<Cookie>  cookies=(List<Cookie>) content.getAttribute("cookies");
+		if(sessions!=null){
+			for(HttpSession session : sessions){
+				System.out.println("seesion:"+session.getId());
+			}
+		}else{
+			System.out.println("no session");
+		}
 		
+		if(cookies!=null){
+			for(Cookie cookie : cookies){
+				System.out.println("cookies:"+cookie.getName()+"  "+cookie.getValue()+"   "+cookie.getSecure()+"   "+cookie.getDomain());
+			}
+		}else{
+			System.out.println("no cookies");
+		}
+		
+		
+		
+		System.out.println("关闭 web");
 	}
 
 	@Override
-	public void contextInitialized(ServletContextEvent arg0) {
+	public void contextInitialized(ServletContextEvent config) {
 		//初始化tomcat
+		System.out.println("启动   web  ");
 		
 	}
 
