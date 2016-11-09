@@ -7,9 +7,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.yf.erp.bean.User;
 import com.yf.erp.service.LoginService;
@@ -41,12 +43,20 @@ public class Login extends HttpServlet {
 		PrintWriter writer=resp.getWriter();
 		String uName = req.getParameter("userName");
 		String pwd=req.getParameter("password");
+		HttpSession session = req.getSession();
 		User user=LoginService.login(uName);
 		if(user!=null){
 			String wd=user.getPassword();
 			if(wd.equals(MD5Util.MD5(pwd))){
+				//µÇÂ¼³É¹¦
+				session.setAttribute("user", user);
+				Cookie cookie=new Cookie("loginRes", uName+":"+pwd);
+				cookie.setMaxAge(60*10);
+				cookie.setPath(this.getServletContext().getContextPath());
+				resp.addCookie(cookie);
 				result=JsonUtil.getOpResult(Contast.RESULT_SUCCESS_CODE,Contast.RESULT_SUCCESSLOGIN_MSG);
 			}else{
+				//µÇÂ¼Ê§°Ü
 				result=JsonUtil.getOpResult(Contast.RESULT_FAIL_ERRPWD,Contast.RESULT_FAIL_ERRPWD_MSG);
 			}
 		}else{

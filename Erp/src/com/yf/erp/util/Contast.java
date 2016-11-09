@@ -13,5 +13,7 @@ public class Contast {
 	public static final String RESULT_FAIL_EXIST_MSG="用户不存在";
 	public static final String RESULT_FAIL_ERRPWD_MSG="密码错误";
 	
-
+   
+	public static final String USERMANAGER="userManager";
+	
 }

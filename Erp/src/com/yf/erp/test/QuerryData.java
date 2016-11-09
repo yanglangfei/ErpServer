@@ -49,8 +49,8 @@ public class QuerryData extends HttpServlet{
 		cookie.setMaxAge(60*2);
 		
 		pwdCookie.setMaxAge(60*2);
-		//response.addCookie(cookie);
-		//response.addCookie(pwdCookie);
+		response.addCookie(cookie);
+		response.addCookie(pwdCookie);
 		cookies.add(cookie);
 		sessions.add(session);
 		
