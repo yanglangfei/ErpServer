@@ -13,7 +13,6 @@ import com.yf.erp.service.AddDesktopService;
 import com.yf.erp.util.Contast;
 import com.yf.erp.util.JsonUtil;
 import com.yf.erp.util.StringUtil;
-
 /**
  * @author 杨朗飞
  *2016年11月7日  下午1:36:43
@@ -25,7 +24,6 @@ public class AddDesktop extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
 		  PrintWriter writer=resp.getWriter();
 		
 	      String name=req.getParameter("name");

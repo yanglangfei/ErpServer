@@ -19,8 +19,7 @@ public class AutoLogin implements Filter{
 
 	@Override
 	public void destroy() {
-		
-		
+		System.out.println("destroy()£º"+Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 
 	@Override
@@ -82,6 +81,7 @@ public class AutoLogin implements Filter{
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
+		System.out.println("init£º"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		filterConfig.getServletContext().getAttribute("USERMANAGER");
 		
 	}

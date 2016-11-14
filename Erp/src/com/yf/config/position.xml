@@ -73,10 +73,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="addPosition" parameterType="com.yf.erp.bean.Position" useGeneratedKeys="true" keyProperty="id" >
 		INSERT INTO position
-		(no,name,sex,weight,birth,homeAddress,localAddress,headFace,joinDate,delop,scoreId,teamId)
+		(name,deptId)
 		 VALUES
-		(#{no},#{name},#{sex},#{weight},#{birth},#{homeAddress},#{localAddress},#{headFace},#{joinDate},#{delop},#{score}
-		,#{team})
+		(#{name},#{deptId})
 	</insert>
 
 

@@ -17,7 +17,7 @@ public class PositionDao {
 		int result=0;
 		try {
 			session=DaoAccess.getSession();
-			result=session.insert("Desktop.addDesktop", position);
+			result=session.insert("Position.addPosition", position);
 			session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();

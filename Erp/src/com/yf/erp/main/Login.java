@@ -54,6 +54,7 @@ public class Login extends HttpServlet {
 				cookie.setMaxAge(60*10);
 				cookie.setPath(this.getServletContext().getContextPath());
 				resp.addCookie(cookie);
+				System.out.println("ÉèÖÃµÇÂ¼cookies");
 				result=JsonUtil.getOpResult(Contast.RESULT_SUCCESS_CODE,Contast.RESULT_SUCCESSLOGIN_MSG);
 			}else{
 				//µÇÂ¼Ê§°Ü

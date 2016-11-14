@@ -52,7 +52,6 @@ public class CharSetFilter implements Filter {
 		
 		//放行访问  ---让请求继续进行
 		chain.doFilter(request, response);
-		
 		//阻止访问   并将访问重定向到新的页面
 		//resp.sendRedirect("http://www.baidu.com");
 		

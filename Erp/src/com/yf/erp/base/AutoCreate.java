@@ -7,6 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * @author 杨朗飞
+ *2016年11月14日  下午4:53:25
+ *
+ *  <code>com.yf.erp.base.AutoCreat</code>
+ */
 public class AutoCreate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

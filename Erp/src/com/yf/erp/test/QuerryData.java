@@ -34,6 +34,12 @@ public class QuerryData extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		StackTraceElement current = Thread.currentThread().getStackTrace()[1];
+		System.out.println("执行方法："+current.getMethodName()
+				+"执行行数  :"+current.getLineNumber()
+				+"变量:"+current.getFileName()
+				+"当前类名:"+current.getClassName()
+				);
 		content.setAttribute("session", sessions);
 		content.setAttribute("cookies", cookies);
 		String name=(String) request.getAttribute("name");

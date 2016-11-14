@@ -1,142 +1,234 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
-  <display-name>Erp</display-name>
-  
-  
-   
- <servlet>
-  <servlet-name>Login</servlet-name>
-   <servlet-class>com.yf.erp.main.Login</servlet-class>
- </servlet>
- 
- <servlet-mapping>
-   <servlet-name>Login</servlet-name>
-   <url-pattern>/login</url-pattern>
- </servlet-mapping>
- 
- 
-  <servlet>
-  <servlet-name>EmployeeList</servlet-name>
-   <servlet-class>com.yf.erp.main.emp.EmployeeList</servlet-class>
- </servlet>
- 
- <servlet-mapping>
-   <servlet-name>EmployeeList</servlet-name>
-   <url-pattern>/employeeList</url-pattern>
- </servlet-mapping>
- 
-  <servlet>
-  <servlet-name>AddEmployee</servlet-name>
-   <servlet-class>com.yf.erp.main.emp.AddEmployee</servlet-class>
- </servlet>
- 
- <servlet-mapping>
-   <servlet-name>AddEmployee</servlet-name>
-   <url-pattern>/addEmployee</url-pattern>
- </servlet-mapping>
- 
- 
-  <servlet>
-  <servlet-name>DelEmployee</servlet-name>
-   <servlet-class>com.yf.erp.main.emp.DelEmployee</servlet-class>
- </servlet>
- 
- <servlet-mapping>
-   <servlet-name>DelEmployee</servlet-name>
-   <url-pattern>/delEmployee</url-pattern>
- </servlet-mapping>
- 
- 
-  <servlet>
-  <servlet-name>UpdateEmployee</servlet-name>
-   <servlet-class>com.yf.erp.main.emp.UpdateEmployee</servlet-class>
- </servlet>
- 
- <servlet-mapping>
-   <servlet-name>UpdateEmployee</servlet-name>
-   <url-pattern>/updateEmployee</url-pattern>
- </servlet-mapping>
- 
- 
- <!-- 编码过滤 -->
- <filter>
-   <filter-name>setCharSet</filter-name>
-   <filter-class>com.yf.erp.base.CharSetFilter</filter-class>
-    <init-param>
-            <param-name>encode</param-name>
-            <param-value>UTF-8</param-value>
-        </init-param>
- </filter>
- 
-  <filter-mapping>
-   <filter-name>setCharSet</filter-name>
-   <url-pattern>/*</url-pattern>
- </filter-mapping>
- 
- 
- <!-- 自动登录过滤 -->
- 
- <filter>
-   <filter-name>autoLogin</filter-name>
-   <filter-class>com.yf.erp.base.AutoLogin</filter-class>
- </filter>
- 
- <filter-mapping>
-   <filter-name>autoLogin</filter-name>
-   <url-pattern>/login</url-pattern>
- </filter-mapping>
- 
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>Erp</display-name>
 
- <servlet>
-   <servlet-name>test</servlet-name>
-   <servlet-class>com.yf.erp.test.QuerryData</servlet-class>
- </servlet>
- 
- <servlet-mapping>
-   <servlet-name>test</servlet-name>
-   <url-pattern>/test</url-pattern>
- </servlet-mapping>
-    <servlet>
-        <servlet-name>Auto</servlet-name>
-        <servlet-class>com.yf.erp.base.AutoCreate</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Auto</servlet-name>
-        <url-pattern>/auto</url-pattern>
-    </servlet-mapping>
-    
-    
-    <!-- 定义404异常页面-->
-    <error-page>
-      <error-code>404</error-code>
-      <location>/errpage1.jsp</location>
-    </error-page>
-    
-    <!-- 定义空指针异常页面 -->
-    <error-page>
-       <exception-type>java.lang.NullPointerException</exception-type>
-       <location>/nullpoint.jsp</location>
-    </error-page>
-    
-    <!-- 设置session 超时时间  最大存活时间 -->
-    <session-config>
-      <session-timeout>10</session-timeout>
-      <cookie-config>
-      <max-age>100</max-age>
-      </cookie-config>
-    </session-config>
-    <listener>
-        <listener-class>com.yf.erp.base.WebListener</listener-class>
-    </listener>
-    <servlet>
-        <servlet-name>second</servlet-name>
-        <servlet-class>com.yf.erp.test.SecondQuery</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>second</servlet-name>
-        <url-pattern>/second</url-pattern>
-    </servlet-mapping>
-    
-    
- 
+
+
+	<!-- 登录 -->
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>com.yf.erp.main.Login</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- 员工列表 -->
+	<servlet>
+		<servlet-name>EmployeeList</servlet-name>
+		<servlet-class>com.yf.erp.main.emp.EmployeeList</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EmployeeList</servlet-name>
+		<url-pattern>/employeeList</url-pattern>
+	</servlet-mapping>
+
+	<!-- 添加员工 -->
+	<servlet>
+		<servlet-name>AddEmployee</servlet-name>
+		<servlet-class>com.yf.erp.main.emp.AddEmployee</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AddEmployee</servlet-name>
+		<url-pattern>/addEmployee</url-pattern>
+	</servlet-mapping>
+
+	<!-- 删除员工 -->
+	<servlet>
+		<servlet-name>DelEmployee</servlet-name>
+		<servlet-class>com.yf.erp.main.emp.DelEmployee</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DelEmployee</servlet-name>
+		<url-pattern>/delEmployee</url-pattern>
+	</servlet-mapping>
+
+	<!-- 修改员工 -->
+	<servlet>
+		<servlet-name>UpdateEmployee</servlet-name>
+		<servlet-class>com.yf.erp.main.emp.UpdateEmployee</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UpdateEmployee</servlet-name>
+		<url-pattern>/updateEmployee</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- 编码过滤 -->
+	<filter>
+		<filter-name>setCharSet</filter-name>
+		<filter-class>com.yf.erp.base.CharSetFilter</filter-class>
+		<init-param>
+			<param-name>encode</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>setCharSet</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+	<!-- 自动登录过滤 -->
+
+	<filter>
+		<filter-name>autoLogin</filter-name>
+		<filter-class>com.yf.erp.base.AutoLogin</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>autoLogin</filter-name>
+		<url-pattern>/login</url-pattern>
+	</filter-mapping>
+
+	<!-- 测试 session 和 cookies -->
+	<servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>com.yf.erp.test.QuerryData</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Auto</servlet-name>
+		<servlet-class>com.yf.erp.base.AutoCreate</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Auto</servlet-name>
+		<url-pattern>/auto</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- 删除部门信息 -->
+	<servlet>
+		<servlet-name>DelDesktop</servlet-name>
+		<servlet-class>com.yf.erp.main.desktop.DelDesktop</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelDesktop</servlet-name>
+		<url-pattern>/delDept</url-pattern>
+	</servlet-mapping>
+
+	<!-- 添加部门信息 -->
+	<servlet>
+		<servlet-name>AddDesktop</servlet-name>
+		<servlet-class>com.yf.erp.main.desktop.AddDesktop</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddDesktop</servlet-name>
+		<url-pattern>/addDept</url-pattern>
+	</servlet-mapping>
+
+	<!-- 获取部门信息列表 -->
+	<servlet>
+		<servlet-name>DesktopList</servlet-name>
+		<servlet-class>com.yf.erp.main.desktop.DesktopList</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DesktopList</servlet-name>
+		<url-pattern>/getDept</url-pattern>
+	</servlet-mapping>
+
+	<!-- 更新部门信息 -->
+	<servlet>
+		<servlet-name>UpdateDesktop</servlet-name>
+		<servlet-class>com.yf.erp.main.desktop.UpdateDesktop</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateDesktop</servlet-name>
+		<url-pattern>/updateDept</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- 添加职位信息 -->
+	<servlet>
+		<servlet-name>AddPosition</servlet-name>
+		<servlet-class>com.yf.erp.main.position.AddPosition</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddPosition</servlet-name>
+		<url-pattern>/addPosition</url-pattern>
+	</servlet-mapping>
+
+	<!-- 删除职位信息 -->
+	<servlet>
+		<servlet-name>DelPosition</servlet-name>
+		<servlet-class>com.yf.erp.main.position.DelPosition</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelPosition</servlet-name>
+		<url-pattern>/delPosition</url-pattern>
+	</servlet-mapping>
+
+	<!-- 获取职位信息 -->
+	<servlet>
+		<servlet-name>PositionList</servlet-name>
+		<servlet-class>com.yf.erp.main.position.PositionList</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PositionList</servlet-name>
+		<url-pattern>/getPosition</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- 修改职位信息 -->
+	<servlet>
+		<servlet-name>UpdatePosition</servlet-name>
+		<servlet-class>com.yf.erp.main.position.UpdatePosition</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdatePosition</servlet-name>
+		<url-pattern>/updatePosition</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- 定义404异常页面 -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/errpage1.jsp</location>
+	</error-page>
+
+	<!-- 定义空指针异常页面 -->
+	<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/nullpoint.jsp</location>
+	</error-page>
+
+	<!-- 设置session 超时时间 最大存活时间 -->
+	<session-config>
+		<session-timeout>10</session-timeout>
+		<cookie-config>
+			<max-age>100</max-age>
+		</cookie-config>
+	</session-config>
+	
+	<!-- 注册监听器 -->
+	<listener>
+		<listener-class>com.yf.erp.base.WebListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>second</servlet-name>
+		<servlet-class>com.yf.erp.test.SecondQuery</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>second</servlet-name>
+		<url-pattern>/second</url-pattern>
+	</servlet-mapping>
+
+
+
 </web-app>

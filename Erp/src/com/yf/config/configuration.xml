@@ -17,5 +17,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<mapper resource="com/yf/config/user.xml"/>
 		<mapper resource="com/yf/config/employee.xml"/>
+		<mapper resource="com/yf/config/position.xml"/>
 	</mappers>
 </configuration>

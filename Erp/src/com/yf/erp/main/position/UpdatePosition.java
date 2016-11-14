@@ -1,15 +1,11 @@
 package com.yf.erp.main.position;
-
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.yf.erp.bean.Position;
-import com.yf.erp.service.AddPositionService;
 import com.yf.erp.service.UpdatePositionService;
 import com.yf.erp.util.Contast;
 import com.yf.erp.util.JsonUtil;
