@@ -27,14 +27,11 @@ public class UpdateDesktop extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
 		  PrintWriter writer=resp.getWriter();
-		
 	      String name=req.getParameter("name");
 	      String ownName=req.getParameter("ownName");
 	      String ownNum=req.getParameter("ownNum");
 	      Desktop  desktop=new Desktop();
-	      
 	      desktop.setName(name!=null ? name :"");
 	      desktop.setOwnName(ownName!=null ? ownName : "");
 	      desktop.setOwnNum((ownNum!=null&&StringUtil.isInteger(ownNum)) ? Integer.parseInt(ownNum) : 0);

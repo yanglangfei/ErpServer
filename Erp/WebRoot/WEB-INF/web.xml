@@ -194,6 +194,19 @@
 		<servlet-name>UpdatePosition</servlet-name>
 		<url-pattern>/updatePosition</url-pattern>
 	</servlet-mapping>
+	
+	
+	<!-- 测试 -->
+	<servlet>
+		<servlet-name>second</servlet-name>
+		<servlet-class>com.yf.erp.test.SecondQuery</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>second</servlet-name>
+		<url-pattern>/second</url-pattern>
+	</servlet-mapping>
+	
+	
 
 
 	<!-- 定义404异常页面 -->
@@ -220,15 +233,16 @@
 	<listener>
 		<listener-class>com.yf.erp.base.WebListener</listener-class>
 	</listener>
-	<servlet>
-		<servlet-name>second</servlet-name>
-		<servlet-class>com.yf.erp.test.SecondQuery</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>second</servlet-name>
-		<url-pattern>/second</url-pattern>
-	</servlet-mapping>
-
-
+	
+	
+	<!-- 监听request 请求 -->
+	<listener>
+	   <listener-class>com.yf.erp.base.RequestListener</listener-class>
+	</listener>
+	
+	<!-- 监听 session 的创建和销毁 -->
+    <listener>
+      <listener-class>com.yf.erp.base.SessionListener</listener-class>    
+    </listener>
 
 </web-app>

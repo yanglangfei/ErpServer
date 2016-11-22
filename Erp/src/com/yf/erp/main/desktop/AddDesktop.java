@@ -25,7 +25,6 @@ public class AddDesktop extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		  PrintWriter writer=resp.getWriter();
-		
 	      String name=req.getParameter("name");
 	      String ownName=req.getParameter("ownName");
 	      String ownNum=req.getParameter("ownNum");
@@ -34,7 +33,6 @@ public class AddDesktop extends HttpServlet{
 	      desktop.setName(name!=null ? name :"");
 	      desktop.setOwnName(ownName!=null ? ownName : "");
 	      desktop.setOwnNum((ownNum!=null&&StringUtil.isInteger(ownNum)) ? Integer.parseInt(ownNum) : 0);
-	      
 	      AddDesktopService service=new AddDesktopService();
 	      int res=service.addDesktop(desktop);
 	      result=res>0 ?JsonUtil.getEmlloyeeList(null, Contast.RESULT_SUCCESS_CODE, Contast.RESULT_SUCCESS_MSG)

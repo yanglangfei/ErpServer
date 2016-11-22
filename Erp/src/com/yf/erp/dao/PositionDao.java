@@ -79,10 +79,12 @@ public class PositionDao {
 		int result=0;
 		try {
 			session=DaoAccess.getSession();
-			result=session.update("Position.delPosition");
+			result=session.delete("Position.delPosition",id);
 			session.commit();
+			System.out.println("É¾³ý:"+result);
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("É¾³ýerror:"+e.getMessage());
 		}finally{
 			if(session!=null){
 				session.close();

@@ -38,7 +38,7 @@ public class AutoLogin implements Filter{
 			if(user!=null){
 				String userName=user.getUserName();
 				String password=user.getPassword();
-				System.out.println("已经登录");
+				System.out.println("已经登录:"+userName+"  pwd:"+password);
 				chain.doFilter(req, resp);
 				System.out.println("已经登录:完成");
 			}else{
@@ -58,8 +58,10 @@ public class AutoLogin implements Filter{
 						user.setPassword(password);
 						user.setUserName(userName);
 						req.getSession().setAttribute("user", user);
-						System.out.println("自动登录...");
+						System.out.println("自动登录...   :  登录cookie:"+value);
+						//过滤之前的操作
 						chain.doFilter(req, resp);
+						//过滤之后的操作
 						System.out.println("自动登录成功");
 					}else{
 						//登录失败    调回登录界面
@@ -74,9 +76,7 @@ public class AutoLogin implements Filter{
 				
 			}
 			
-			
 		}
-		
 	}
 
 	@Override

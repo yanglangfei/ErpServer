@@ -49,7 +49,6 @@ public class CharSetFilter implements Filter {
 			System.out.println("no cook");
 		}
 		System.out.println("session:"+session.getId());*/
-		
 		//放行访问  ---让请求继续进行
 		chain.doFilter(request, response);
 		//阻止访问   并将访问重定向到新的页面
