@@ -48,18 +48,20 @@ public class QuerryData extends HttpServlet{
 		System.out.println("session:"+session.getId());
 		String values = request.getRemoteAddr()+UUID.randomUUID();
 		Cookie cookie=new Cookie("userName",values);
-		Cookie pwdCookie=new Cookie("pwd", MD5Util.MD5("111111"));
+		Cookie pwdCookie=new Cookie("pwd", MD5Util.MD5(name));
 		//设置  cookie保存时间 2分钟  
 		//设置 负数时  浏览器内存中保存   关闭浏览器 销毁  
 		//设置为0 立即销毁
-		cookie.setMaxAge(60*2);
+		pwdCookie.setHttpOnly(true);
+		pwdCookie.setSecure(true);
+		pwdCookie.setVersion(1);
+		pwdCookie.setValue(name);
 		
 		pwdCookie.setMaxAge(60*2);
 		response.addCookie(cookie);
 		response.addCookie(pwdCookie);
 		cookies.add(cookie);
 		sessions.add(session);
-		
 		
 		/*Cookie[] cookies = request.getCookies();
 		if(cookies!=null){
