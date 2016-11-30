@@ -196,6 +196,19 @@
 	</servlet-mapping>
 	
 	
+	<!-- socket 监听 -->
+	
+	<servlet>
+	    <servlet-name>MySocket</servlet-name>
+	    <servlet-class>com.yf.erp.main.MySocket</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>MySocket</servlet-name>
+	  <url-pattern>/connect</url-pattern>
+	</servlet-mapping>
+	
+	
+	
 	<!-- 测试 -->
 	<servlet>
 		<servlet-name>second</servlet-name>
