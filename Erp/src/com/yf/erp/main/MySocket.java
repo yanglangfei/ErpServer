@@ -19,7 +19,6 @@ import org.apache.catalina.websocket.WsOutbound;
  */
 public class MySocket extends WebSocketServlet {
 	private static final long serialVersionUID = -1207436218121510786L;
-	
 	private static List<MessageInbound> socketList = new ArrayList<MessageInbound>();
 	
 	@Override
