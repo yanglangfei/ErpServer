@@ -79,18 +79,26 @@ public class MyTest {
 			}
 		});*/
 		
-		//只监听输出的偶数
+		//只监听输出的偶数,并对偶数求平方根
 		Observable.just(1, 2,3,4,5,6,7,8,9,20).filter(new Func1<Integer, Boolean>() {
 
 			@Override
 			public Boolean call(Integer arg0) {
-				// TODO Auto-generated method stub
+				//过滤监听的数据条件
 				return arg0%2==0;
 			}
-		}).subscribe(new Action1<Integer>() {
+		}).map(new Func1<Integer, Double>() {
 
 			@Override
-			public void call(Integer arg0) {
+			public Double call(Integer arg0) {
+				//对数据进行二次操作
+				return Math.sqrt(arg0);
+			}
+		}).subscribe(new Action1<Double>() {
+
+			@Override
+			public void call(Double arg0) {
+				//监听结果
 				System.out.println("argo:"+arg0);
 				
 			}
