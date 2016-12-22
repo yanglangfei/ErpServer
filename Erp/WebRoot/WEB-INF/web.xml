@@ -194,21 +194,21 @@
 		<servlet-name>UpdatePosition</servlet-name>
 		<url-pattern>/updatePosition</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
 	<!-- socket 监听 -->
-	
+
 	<servlet>
-	    <servlet-name>MySocket</servlet-name>
-	    <servlet-class>com.yf.erp.main.MySocket</servlet-class>
+		<servlet-name>MySocket</servlet-name>
+		<servlet-class>com.yf.erp.main.MySocket</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	  <servlet-name>MySocket</servlet-name>
-	  <url-pattern>/connect</url-pattern>
+		<servlet-name>MySocket</servlet-name>
+		<url-pattern>/connect</url-pattern>
 	</servlet-mapping>
-	
-	
-	
+
+
+
 	<!-- 测试 -->
 	<servlet>
 		<servlet-name>second</servlet-name>
@@ -218,8 +218,18 @@
 		<servlet-name>second</servlet-name>
 		<url-pattern>/second</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
+   <!-- update model -->
+	<servlet>
+		<servlet-name>model</servlet-name>
+		<servlet-class>com.yf.erp.test.UpdateModel</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>model</servlet-name>
+		<url-pattern>/model</url-pattern>
+	</servlet-mapping>
+
 
 
 	<!-- 定义404异常页面 -->
@@ -241,21 +251,20 @@
 			<max-age>100</max-age>
 		</cookie-config>
 	</session-config>
-	
+
 	<!-- 注册监听器 -->
 	<listener>
 		<listener-class>com.yf.erp.base.WebListener</listener-class>
 	</listener>
-	
-	
+
 	<!-- 监听request 请求 -->
 	<listener>
-	   <listener-class>com.yf.erp.base.RequestListener</listener-class>
+		<listener-class>com.yf.erp.base.RequestListener</listener-class>
 	</listener>
-	
+
 	<!-- 监听 session 的创建和销毁 -->
-    <listener>
-      <listener-class>com.yf.erp.base.SessionListener</listener-class>    
-    </listener>
+	<listener>
+		<listener-class>com.yf.erp.base.SessionListener</listener-class>
+	</listener>
 
 </web-app>

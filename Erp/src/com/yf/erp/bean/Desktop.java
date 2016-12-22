@@ -10,7 +10,11 @@ import java.io.Serializable;
  *2016年11月4日  下午2:12:25
  */
 public class Desktop implements Serializable {
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private int id;
 	
 	private String name;

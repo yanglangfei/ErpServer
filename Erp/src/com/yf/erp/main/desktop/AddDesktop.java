@@ -29,7 +29,6 @@ public class AddDesktop extends HttpServlet{
 	      String ownName=req.getParameter("ownName");
 	      String ownNum=req.getParameter("ownNum");
 	      Desktop  desktop=new Desktop();
-	      
 	      desktop.setName(name!=null ? name :"");
 	      desktop.setOwnName(ownName!=null ? ownName : "");
 	      desktop.setOwnNum((ownNum!=null&&StringUtil.isInteger(ownNum)) ? Integer.parseInt(ownNum) : 0);
@@ -37,7 +36,7 @@ public class AddDesktop extends HttpServlet{
 	      int res=service.addDesktop(desktop);
 	      result=res>0 ?JsonUtil.getEmlloyeeList(null, Contast.RESULT_SUCCESS_CODE, Contast.RESULT_SUCCESS_MSG)
 					:
-						JsonUtil.getEmlloyeeList(null, Contast.RESULT_FAIL_CODE, Contast.RESULT_FAIL_MSG)
+					JsonUtil.getEmlloyeeList(null, Contast.RESULT_FAIL_CODE, Contast.RESULT_FAIL_MSG)
 					;	      
 	      writer.print(result);
 	      writer.flush();

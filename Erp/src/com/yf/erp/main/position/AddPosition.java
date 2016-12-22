@@ -29,7 +29,6 @@ public class AddPosition extends HttpServlet {
 		PrintWriter writer=resp.getWriter();
 		String name=req.getParameter("name");
 		String deptId=req.getParameter("deptId");
-		
 		Position position=new Position();
 		position.setName(name);
 		position.setDeptId(StringUtil.isNotNull(deptId)&&StringUtil.isInteger(deptId) ?Integer.parseInt(deptId) : 0);

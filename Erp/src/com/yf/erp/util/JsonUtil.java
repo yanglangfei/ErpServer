@@ -109,7 +109,35 @@ public class JsonUtil {
 		object.add("data", array);
 
 		return object.toString();
+	}
+
+	
+	/*
+	 * 分模块更新
+	 */
+	public static String getModelData(int code,String msg) {
+		JsonObject object=new JsonObject();
+		object.addProperty("ret_code",code);
+		object.addProperty("msg", msg);
 		
+		JsonObject modelData=new JsonObject();
+		modelData.addProperty("version", 3.5);
+		modelData.addProperty("downLoadPath", "");
+		modelData.addProperty("fileName", "");
+		
+		JsonArray models=new JsonArray();
+		for(int i=0;i<2;i++){
+			JsonObject model=new JsonObject();
+			model.addProperty("packageName", "");
+			model.addProperty("uuid", "");
+			JsonObject layoutParams=new JsonObject();
+			layoutParams.addProperty("width", -1);
+			layoutParams.addProperty("height", -1);
+			model.add("layoutParams", layoutParams);
+		}
+		modelData.add("viewInfo", models);
+		object.add("data", modelData);
+		return object.toString();
 	}
 
 }
