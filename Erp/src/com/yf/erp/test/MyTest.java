@@ -1,11 +1,12 @@
 package com.yf.erp.test;
+import java.util.concurrent.TimeUnit;
+
 import rx.Observable;
 import rx.Observable.OnSubscribe;
 import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.Observer;
 import rx.Subscriber;
-
 public class MyTest {
 	
 	public static void main(String[] args) {
@@ -94,7 +95,10 @@ public class MyTest {
 				//对数据进行二次操作
 				return Math.sqrt(arg0);
 			}
-		}).subscribe(new Action1<Double>() {
+		})
+		//只显示3个数据
+		.limit(3)
+		.subscribe(new Action1<Double>() {
 
 			@Override
 			public void call(Double arg0) {

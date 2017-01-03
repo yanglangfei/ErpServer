@@ -12,7 +12,6 @@ import com.yf.erp.service.PositionListService;
 import com.yf.erp.service.UpdatePositionService;
 
 public class ITest {
-
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(System.in);
 		String which=scanner.next();

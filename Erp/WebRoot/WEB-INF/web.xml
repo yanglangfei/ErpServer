@@ -225,10 +225,19 @@
 		<servlet-name>model</servlet-name>
 		<servlet-class>com.yf.erp.test.UpdateModel</servlet-class>
 	</servlet>
+  <servlet>
+    <servlet-name>DownLoad</servlet-name>
+    <servlet-class>download.DownLoad</servlet-class>
+  </servlet>
+
 	<servlet-mapping>
 		<servlet-name>model</servlet-name>
 		<url-pattern>/model</url-pattern>
 	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownLoad</servlet-name>
+    <url-pattern>/batdownload</url-pattern>
+  </servlet-mapping>
 
 
 
@@ -266,5 +275,10 @@
 	<listener>
 		<listener-class>com.yf.erp.base.SessionListener</listener-class>
 	</listener>
+	
+	<error-page>
+	  <error-code>500</error-code>
+	  <location>/error.html</location>
+	</error-page>
 
 </web-app>

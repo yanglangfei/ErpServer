@@ -66,12 +66,14 @@ public class AutoLogin implements Filter{
 					}else{
 						//登录失败    调回登录界面
 						System.out.println("进入登录界面");
-						req.getRequestDispatcher("http://127.0.0.1:8020/ERP/index.html").forward(req, resp);
+						resp.sendRedirect("http://127.0.0.1:8020/ERP/index.html");
+					//	req.getRequestDispatcher("http://127.0.0.1:8020/ERP/index.html").forward(req, resp);
 					}
 				}else{
 					//cookies 不存在  重新登录
 					System.out.println("进入登录界面");
-					req.getRequestDispatcher("http://127.0.0.1:8020/ERP/index.html").forward(req, resp);
+					resp.sendRedirect("http://127.0.0.1:8020/ERP/index.html");
+					//req.getRequestDispatcher("http://127.0.0.1:8020/ERP/index.html").forward(req, resp);
 				}
 				
 			}

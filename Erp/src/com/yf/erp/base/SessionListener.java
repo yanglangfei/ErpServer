@@ -29,5 +29,4 @@ public class SessionListener implements HttpSessionListener {
 		System.out.println("用户下线:"+session.getId());
 		
 	}
-
 }

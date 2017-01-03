@@ -1,6 +1,7 @@
 package com.yf.erp.base;
 
 import java.io.IOException;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -37,8 +38,6 @@ public class CharSetFilter implements Filter {
 		resp.setCharacterEncoding(encode!=null ? encode : defaultEncode);
 		//处理get 请求乱码
 		resp.setContentType("text/html;charset="+defaultEncode);
-		req.setAttribute("name", "张三");
-		System.out.println("设置编码");
 		/*Cookie[] cookies=req.getCookies();
 		HttpSession session = req.getSession();
 		if(cookies!=null){
@@ -50,16 +49,13 @@ public class CharSetFilter implements Filter {
 		}
 		System.out.println("session:"+session.getId());*/
 		//放行访问  ---让请求继续进行
-		chain.doFilter(request, response);
-		//阻止访问   并将访问重定向到新的页面
-		//resp.sendRedirect("http://www.baidu.com");
-		
-		/*
-		PrintWriter writer=response.getWriter();
-		writer.print("禁止访问!!");
-		writer.flush();
-		writer.close();*/
-		
+		String uri = req.getRequestURI();
+		if(uri.equals("login")){
+			//阻止访问   并将访问重定向到新的页面
+			resp.sendRedirect("http://192.168.1.134:8080/Erp/login");
+		}else{
+			chain.doFilter(req,resp);
+		}
 	}
 
 	@Override
