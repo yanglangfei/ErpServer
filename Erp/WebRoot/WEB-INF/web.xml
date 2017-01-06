@@ -309,7 +309,7 @@
         <!-- 设置最大响应时间 -->
 		<init-param>
 			<param-name>maxWaitAfterWrite</param-name>
-			<param-value>1000</param-value>
+			<param-value>500</param-value>
 		</init-param>
 
 	</servlet>

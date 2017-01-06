@@ -38,12 +38,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-       <ul id="ul" style="color:red;font-size: 60px">
+       <ul id="ul" style="color:red;font-size: 21px">
        
        </ul>
-  
-  
-    <input type="text" id="msg">
-    <input type="button" id="send" value="发送">
+    <input type="text" id="msg" size="30" style="min-height: 60px;width: 80%">
+    <input type="button"   id="send" value="发送" style="padding: 10px">
   </body>
 </html>
