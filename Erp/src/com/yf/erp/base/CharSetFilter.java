@@ -8,6 +8,7 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -38,6 +39,16 @@ public class CharSetFilter implements Filter {
 		resp.setCharacterEncoding(encode!=null ? encode : defaultEncode);
 		//¥¶¿Ìget «Î«Û¬“¬Î
 		resp.setContentType("text/html;charset="+defaultEncode);
+		System.out.println("default:"+defaultEncode);
+		 String name = req.getParameter("name");
+		
+		Cookie cookie=new Cookie("account", name);
+		cookie.setMaxAge(1000*10);
+		cookie.setHttpOnly(true);
+		cookie.setVersion(1);
+		cookie.setSecure(true);
+		resp.addCookie(cookie);
+		
 		/*Cookie[] cookies=req.getCookies();
 		HttpSession session = req.getSession();
 		if(cookies!=null){

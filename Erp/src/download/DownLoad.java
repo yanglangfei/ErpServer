@@ -25,14 +25,7 @@ public class DownLoad extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		String url=request.getParameter("url");
-		String limte=request.getParameter("limte");
-		Document document = HTMLParser.connect(url).get();
-		Elements select = document.select("#cla");
-		for(Element ele : select){
-			String attr = ele.attr("href");
-			System.out.println("attr:"+attr);
-		}
+		
 		out.flush();
 		out.close();
 	}
@@ -46,12 +39,6 @@ public class DownLoad extends HttpServlet {
 		Document doc=HTMLParser.parse(res);
 		Element select = doc.select(".name").first();
 		String attr = select.attr("href");
-		
-		
-		
-		
-		
-		
 		System.out.println("res:"+doc.body());
 	}
 

@@ -47,7 +47,16 @@ public class WebListener implements ServletContextListener {
 	public void contextInitialized(ServletContextEvent config) {
 		//≥ı ºªØtomcat
 		System.out.println("∆Ù∂Ø   web  ");
-		
+	}
+	
+	
+	public static void main(String[] args) {
+		int num=new Exception().getStackTrace()[0].getLineNumber();
+		String cm=new Exception().getStackTrace()[0].getClassName();
+		String mm=new Exception().getStackTrace()[0].getMethodName();
+		String fm=new Exception().getStackTrace()[0].getFileName();
+		//int num=Thread.currentThread().getStackTrace()[0].getLineNumber();
+		System.out.println("num:"+num+" cm:"+cm+"  mm:"+mm+"  fm:"+fm);
 	}
 
 }

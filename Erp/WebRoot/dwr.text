@@ -1,0 +1,6 @@
+dwr 推送机制
+java  --->  js
+1>  web.xml 配置
+2>  dwr.xml  配置
+3>  dwr.js文件编写
+4>  PushUtil 类的编写

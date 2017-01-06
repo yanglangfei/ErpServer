@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>dwr.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="/Erp/js/dwr/engine.js"></script>
+    <script type="text/javascript" src="/Erp/js/dwr/util.js"></script>
+    <script type="text/javascript" src="/Erp/js/dwr/interface/push.js"></script>
+    <script type="text/javascript" src="/Erp/js/libs/jquery.js"></script>
+     <script type="text/javascript">
+       
+        
+        $(document).ready(function(){
+           dwr.engine.setActiveReverseAjax(true);
+           $("#send").click(function(){
+             push.pushMessage($("#msg").val());
+           });
+           
+        });
+        
+         function  back(msg){
+             $("#ul").html($("#ul").html()+"<br>"+msg);
+        }
+        
+    </script>
+  </head>
+  
+  <body>
+    <div>
+       <ul id="ul" style="color: yellow;font-size: 21px">
+       
+       </ul>
+    </div>
+  
+  
+    <input type="text" id="msg">
+    <input type="button" id="send" value="发送">
+  
+  <h1></h1>
+  
+   
+  </body>
+</html>
