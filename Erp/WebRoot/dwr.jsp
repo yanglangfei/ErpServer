@@ -25,6 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            dwr.engine.setActiveReverseAjax(true);
            $("#send").click(function(){
              push.pushMessage($("#msg").val());
+             $("#msg").val("");
            });
         });
         

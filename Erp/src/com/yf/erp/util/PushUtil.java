@@ -18,12 +18,13 @@ public class PushUtil {
 		if(uId==null||"".equals(uId)){
 			session.setAttribute("userId", UUID.randomUUID().toString());
 		}
-		System.out.println("uId:"+session.getAttribute("userId"));
+		String id=(String) session.getAttribute("userId");
+		System.out.println("uId:"+id);
 		//创建script 脚本
 		ScriptBuffer sb=new ScriptBuffer();
 		//调用back方法，并传递msg参数
 		sb.appendScript("back(");
-		sb.appendData(msg);
+		sb.appendData(id+":"+msg);
 		sb.appendScript(")");
 		//以session集合创建util对象
 		Util util=new Util(sessions);
