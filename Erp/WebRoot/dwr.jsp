@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-       <ul id="ul" style="color:red;font-size: 21px">
+       <ul id="ul" style="color:red;font-size: 18px">
        
        </ul>
     <input type="text" id="msg" size="30" style="min-height: 60px;width: 80%">

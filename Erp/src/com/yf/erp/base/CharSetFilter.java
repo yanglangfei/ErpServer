@@ -39,7 +39,6 @@ public class CharSetFilter implements Filter {
 		resp.setCharacterEncoding(encode!=null ? encode : defaultEncode);
 		//´¦Àíget ÇëÇóÂÒÂë
 		resp.setContentType("text/html;charset="+defaultEncode);
-		System.out.println("default:"+defaultEncode);
 		 String name = req.getParameter("name");
 		
 		Cookie cookie=new Cookie("account", name);

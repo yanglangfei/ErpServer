@@ -83,7 +83,7 @@ public class AutoLogin implements Filter{
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		System.out.println("init£º"+Thread.currentThread().getStackTrace()[1].getMethodName());
+		//System.out.println("init£º"+Thread.currentThread().getStackTrace()[1].getMethodName());
 		filterConfig.getServletContext().getAttribute("USERMANAGER");
 		
 	}

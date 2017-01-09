@@ -13,14 +13,14 @@ public class SessionSave implements HttpSessionActivationListener {
 	@Override
 	public void sessionDidActivate(HttpSessionEvent arg0) {
 		// ป๎ปฏ
-		System.out.println("sessionDidActivate...");
+		//System.out.println("sessionDidActivate...");
 
 	}
 
 	@Override
 	public void sessionWillPassivate(HttpSessionEvent arg0) {
 		// ถÛปฏ
-		System.out.println("sessionWillPassivate...");
+		//System.out.println("sessionWillPassivate...");
 
 	}
 

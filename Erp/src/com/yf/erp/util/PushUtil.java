@@ -1,5 +1,6 @@
 package com.yf.erp.util;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.UUID;
 
 import org.directwebremoting.ScriptBuffer;
@@ -13,6 +14,21 @@ public class PushUtil {
 		WebContext context=WebContextFactory.get();
 		//获取所有打开页面的session集合
 		Collection sessions = context.getAllScriptSessions();
+		
+		String page = context.getCurrentPage();
+		Collection sions = context.getScriptSessionsByPage("/Erp/dwr.html");
+		Iterator inters = sions.iterator();
+		while (inters.hasNext()) {
+			ScriptSession sion=(ScriptSession) inters.next();
+			System.out.println("sion:"+sion.getId());
+		}
+		
+		
+		System.out.println("page:"+page);
+		
+		
+		
+		
 		ScriptSession session = context.getScriptSession();
 		String uId = (String) session.getAttribute("userId");
 		if(uId==null||"".equals(uId)){

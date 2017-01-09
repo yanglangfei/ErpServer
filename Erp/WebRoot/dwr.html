@@ -10,9 +10,16 @@
     <script type="text/javascript" src="/Erp/js/dwr/util.js"></script>
     <script type="text/javascript" src="/Erp/js/dwr/interface/push.js"></script>
     <script type="text/javascript" src="/Erp/js/libs/jquery.js"></script>
-     <script type="text/javascript">
+    <style>
+       #send:HOVER{
+         background: gray;
+       }
        
-        
+       #send:ACTIVE {
+	  background: green;
+     }
+    </style>
+     <script type="text/javascript">
         $(document).ready(function(){
            dwr.engine.setActiveReverseAjax(true);
            $("#send").click(function(){
@@ -40,13 +47,11 @@
   </head>
   
   <body>
-    <div>
-      <ul id="ul" style="font-size: 21px;color: purple;">
+      <ul id="ul" style="font-size: 18px;color: purple;">
        
        </ul>
     <input type="text" id="msg" size="30" style="min-height: 60px;width: 80%">
     <input type="button"   id="send" value="发送" style="padding: 10px">
-  
   <h1></h1>
   
    

@@ -18,7 +18,7 @@ public class SessionListener implements HttpSessionListener {
 		//session  创建
 		HttpSession session = se.getSession();
 		session.setAttribute("count", count++);
-		System.out.println("新用户上线:"+session.getId());
+		//System.out.println("新用户上线:"+session.getId());
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class SessionListener implements HttpSessionListener {
 		// session 销毁
 		HttpSession session = se.getSession();
 		session.setAttribute("count", count--);
-		System.out.println("用户下线:"+session.getId());
+		//System.out.println("用户下线:"+session.getId());
 		
 	}
 }
