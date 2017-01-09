@@ -30,7 +30,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         });
         
          function  back(msg){
-            $("#ul").html($("#ul").html()+"</br>"+msg);
+            $("#ul").html($("#ul").html()+"</br>"+changeName(msg));
+        }
+        
+          function changeName(message){
+           var array=message.split(":");
+           var name="<font style='color: green;'>"+array[0]+":</font>";
+           var msg="<font style='color: purple;'>"+array[1]+"</font>";
+           return  name+msg;
+        
         }
         
         
