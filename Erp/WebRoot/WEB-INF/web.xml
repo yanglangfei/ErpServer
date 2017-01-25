@@ -4,6 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
 	<display-name>Erp</display-name>
+	
 
 
 
@@ -313,11 +314,20 @@
 		</init-param>
 
 	</servlet>
+  <servlet>
+    <servlet-name>MyServlet</servlet-name>
+    <servlet-class>com.yf.erp.test.MyServlet</servlet-class>
+  </servlet>
+
 
 	<servlet-mapping>
 		<servlet-name>dwr</servlet-name>
 		<url-pattern>/js/dwr/*</url-pattern>
 	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MyServlet</servlet-name>
+    <url-pattern>/my</url-pattern>
+  </servlet-mapping>
 
 
 

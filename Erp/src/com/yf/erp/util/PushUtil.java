@@ -8,44 +8,117 @@ import org.directwebremoting.ScriptSession;
 import org.directwebremoting.WebContext;
 import org.directwebremoting.WebContextFactory;
 import org.directwebremoting.proxy.dwr.Util;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+
 public class PushUtil {
-	public void pushMessage(String msg){
-		//获取Context 对象
-		WebContext context=WebContextFactory.get();
-		//获取所有打开页面的session集合
-		Collection sessions = context.getAllScriptSessions();
-		
-		String page = context.getCurrentPage();
-		Collection sions = context.getScriptSessionsByPage("/Erp/dwr.html");
-		Iterator inters = sions.iterator();
-		while (inters.hasNext()) {
-			ScriptSession sion=(ScriptSession) inters.next();
-			System.out.println("sion:"+sion.getId());
+
+/*	*//**
+	 * 绑定id
+	 *//*
+	public void setId(ScriptSession session) {
+		String token = getId(session);
+		if (token != null && !"".equals(token)) {
+			session.setAttribute("token", UUID.randomUUID().toString());
 		}
-		
-		
-		System.out.println("page:"+page);
-		
-		
-		
-		
+	}
+
+	*//**
+	 * 获取id
+	 *//*
+	public String getId(ScriptSession session) {
+		return (String) session.getAttribute("token");
+	}
+
+	*//**
+	 * @param sessions
+	 * @param type
+	 *//*
+	public void getToSessions(Collection sessions, int type) {
+		Collection toSessions = new ArrayList<ScriptSession>();
+
+	}*/
+
+	public void getUserInfo() {
+		WebContext context = WebContextFactory.get();
 		ScriptSession session = context.getScriptSession();
 		String uId = (String) session.getAttribute("userId");
-		if(uId==null||"".equals(uId)){
+		if (uId == null || "".equals(uId)) {
 			session.setAttribute("userId", UUID.randomUUID().toString());
 		}
-		String id=(String) session.getAttribute("userId");
-		System.out.println("uId:"+id);
-		//创建script 脚本
-		ScriptBuffer sb=new ScriptBuffer();
-		//调用back方法，并传递msg参数
-		sb.appendScript("back(");
-		sb.appendData(id+":"+msg);
+
+		Collection sessions = context.getAllScriptSessions();
+		Iterator inters = sessions.iterator();
+		JsonArray array = new JsonArray();
+		while (inters.hasNext()) {
+			JsonObject object = new JsonObject();
+			ScriptSession sion = (ScriptSession) inters.next();
+			object.addProperty("userId", (String) sion.getAttribute("userId"));
+			object.addProperty("id", sion.getId());
+			object.addProperty("createTime", sion.getCreationTime());
+			object.addProperty("lastTime", sion.getLastAccessedTime());
+			array.add(object);
+		}
+
+		ScriptBuffer sb = new ScriptBuffer();
+		sb.appendScript("getUser(");
+		sb.appendData(array.toString());
 		sb.appendScript(")");
-		//以session集合创建util对象
-		Util util=new Util(sessions);
-		//推送消息
+		Util util = new Util(sessions);
 		util.addScript(sb);
+	}
+
+	/**
+	 * @param msg
+	 *            推送消息
+	 */
+	public void pushMessage(String msg, String isAll) {
+		// 获取Context 对象
+		Util util = null;
+		ScriptSession currentSession = null;
+		WebContext context = WebContextFactory.get();
+		String id = (String) context.getScriptSession().getAttribute("userId");
+		// 获取所有打开页面的session集合
+		Collection sessions = context.getAllScriptSessions();
+		// 创建script 脚本
+		ScriptBuffer sb = new ScriptBuffer();
+		// 调用back方法，并传递msg参数
+		sb.appendScript("back(");
+		sb.appendData(id + ":" + msg);
+		sb.appendScript(")");
+		
+		// 群聊
+		util = new Util(sessions);
+		// 推送消息
+		util.addScript(sb);
+		
+		
+	   /*	
+		if (isAll.equals("全部")) {
+			// 群聊
+			util = new Util(sessions);
+			// 推送消息
+			util.addScript(sb);
+
+		} else {
+			Iterator inters = sessions.iterator();
+			while (inters.hasNext()) {
+				ScriptSession sion = (ScriptSession) inters.next();
+				String uId = (String) sion.getAttribute("userId");
+				if (uId.equals(isAll)) {
+					currentSession = sion;
+					break;
+				}
+			}
+			// 单聊
+			util = new Util(currentSession);
+			// 推送消息
+			util.addScript(sb);
+			
+		}
+		
+	}*/
 	}
 
 }

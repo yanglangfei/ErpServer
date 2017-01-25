@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         $(document).ready(function(){
            dwr.engine.setActiveReverseAjax(true);
            $("#send").click(function(){
-             push.pushMessage($("#msg").val());
+             push.pushMessage($("#msg").val(),"全部");
              $("#msg").val("");
            });
         });
@@ -38,11 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            var name="<font style='color: green;'>"+array[0]+":</font>";
            var msg="<font style='color: purple;'>"+array[1]+"</font>";
            return  name+msg;
-        
         }
-        
-        
-        
     </script>
   </head>
   

@@ -1,9 +1,6 @@
 package download;
-
-import java.awt.Paint;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,10 +10,6 @@ import com.uu.http.client.HttpClient;
 import com.uu.http.html.HTMLParser;
 import com.uu.http.html.dom.Document;
 import com.uu.http.html.dom.Element;
-import com.uu.http.html.dom.Node;
-import com.uu.http.html.parser.Elements;
-import com.yf.erp.util.HttpUtil;
-
 public class DownLoad extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
