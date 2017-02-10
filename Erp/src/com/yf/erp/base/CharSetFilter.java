@@ -64,6 +64,7 @@ public class CharSetFilter implements Filter {
 			//阻止访问   并将访问重定向到新的页面
 			resp.sendRedirect("http://192.168.1.134:8080/Erp/login");
 		}else{
+			req.setAttribute("isOk", true);
 			chain.doFilter(req,resp);
 		}
 	}
