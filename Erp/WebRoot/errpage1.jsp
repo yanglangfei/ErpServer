@@ -1,3 +1,4 @@
+<%@page import="rx.exceptions.Exceptions"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -23,6 +24,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+     <%
+     
+     %>
+  
+  
      <h1>您访问的页面不存在：404</h1>
   </body>
 </html>

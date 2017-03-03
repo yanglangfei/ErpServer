@@ -2,6 +2,7 @@ package com.yf.erp.test;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -28,6 +29,10 @@ public class MyVideo extends JFrame {
 				try {
 					MyVideo frame = new MyVideo();
 					frame.setVisible(true);
+					Point position = frame.getLocationOnScreen();
+					int x = position.x;
+					int y=position.y;
+					System.out.println("frame position=("+x+","+y+")");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
