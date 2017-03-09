@@ -1,18 +1,15 @@
 package com.yf.erp.test;
-
 import java.util.List;
-
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.CookieManager;
 import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
-import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
 import com.gargoylesoftware.htmlunit.html.HtmlInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
-public class ClmbWeb {
+public class ClimbHtml {
 	public static void main(String[] args) {
 		try {
 			initHtml("http://baidu.com/");
@@ -37,7 +34,7 @@ public class ClmbWeb {
 		//启用重定向
 		client.getOptions().setRedirectEnabled(true);
 		// 等待js渲染执行 (ms)
-		client.waitForBackgroundJavaScript(1000*50);
+		client.waitForBackgroundJavaScript(1000*5);
 
 		// 访问url网站
 		HtmlPage page = client.getPage(url);
