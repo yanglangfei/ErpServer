@@ -18,10 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *   过滤参数编码
  */
 public class CharSetFilter implements Filter {
-
 	private FilterConfig filtConfig;
 	private String defaultEncode="UTF-8";
-
 	@Override
 	public void destroy() {
 		//销毁
@@ -47,7 +45,6 @@ public class CharSetFilter implements Filter {
 		cookie.setVersion(1);
 		cookie.setSecure(true);
 		resp.addCookie(cookie);
-		
 		/*Cookie[] cookies=req.getCookies();
 		HttpSession session = req.getSession();
 		if(cookies!=null){
