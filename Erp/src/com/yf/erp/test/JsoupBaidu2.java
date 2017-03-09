@@ -15,7 +15,13 @@ import org.apache.commons.lang.StringEscapeUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-// 爬取百度图片
+/**
+ * @author 杨朗飞
+ *2017年3月9日  下午6:06:00
+ *
+ *   Jsoup 爬取百度图片
+ *
+ */
 public class JsoupBaidu2 {
 	
 	public static void main(String[] args) throws Exception{

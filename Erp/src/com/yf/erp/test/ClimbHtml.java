@@ -9,6 +9,12 @@ import com.gargoylesoftware.htmlunit.html.HtmlForm;
 import com.gargoylesoftware.htmlunit.html.HtmlInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
+/**
+ * @author 杨朗飞
+ *    2017年3月9日  下午6:05:14
+ *    
+ *     HtmlUnite 爬虫   
+ */
 public class ClimbHtml {
 	public static void main(String[] args) {
 		try {
