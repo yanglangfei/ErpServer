@@ -5,9 +5,6 @@
 	version="3.0">
 	<display-name>Erp</display-name>
 	
-
-
-
 	<!-- 登录 -->
 	<servlet>
 		<servlet-name>Login</servlet-name>
@@ -322,13 +319,6 @@
     <servlet-name>UpdateApk</servlet-name>
     <servlet-class>com.yf.erp.test.UpdateApk</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>EventSourceServlet</servlet-name>
-    <servlet-class>com.yf.erp.test.EventSourceServlet</servlet-class>
-  </servlet>
-
-
-
 
 	<servlet-mapping>
 		<servlet-name>dwr</servlet-name>
@@ -341,10 +331,6 @@
   <servlet-mapping>
     <servlet-name>UpdateApk</servlet-name>
     <url-pattern>/tiqqian/updateApk</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>EventSourceServlet</servlet-name>
-    <url-pattern>/tie/source</url-pattern>
   </servlet-mapping>
 
 

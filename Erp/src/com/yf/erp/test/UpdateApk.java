@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.JsonObject;
 
 //   /tiqqian/updateApk
+/**
+ * @author ÑîÀÊ·É
+ *   ¸üÐÂapk
+ */
 public class UpdateApk extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
