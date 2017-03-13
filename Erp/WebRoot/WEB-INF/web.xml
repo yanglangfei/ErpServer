@@ -318,6 +318,11 @@
     <servlet-name>MyServlet</servlet-name>
     <servlet-class>com.yf.erp.test.MyServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>UpdateApk</servlet-name>
+    <servlet-class>com.yf.erp.test.UpdateApk</servlet-class>
+  </servlet>
+
 
 
 	<servlet-mapping>
@@ -327,6 +332,10 @@
   <servlet-mapping>
     <servlet-name>MyServlet</servlet-name>
     <url-pattern>/my</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateApk</servlet-name>
+    <url-pattern>/tiqqian/updateApk</url-pattern>
   </servlet-mapping>
 
 

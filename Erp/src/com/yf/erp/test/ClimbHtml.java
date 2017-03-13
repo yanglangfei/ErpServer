@@ -26,7 +26,7 @@ public class ClimbHtml {
 
 	public static void initHtml(String url) throws Exception {
 		// 创建 chrome 浏览器
-		WebClient client = new WebClient(BrowserVersion.CHROME);
+		WebClient client = new WebClient(BrowserVersion.FIREFOX_24);
 		// 启用js解释器
 		client.getOptions().setJavaScriptEnabled(false);
 		// 启用css解释器
