@@ -7,6 +7,7 @@ import com.google.gson.JsonObject;
 import com.yf.erp.bean.Desktop;
 import com.yf.erp.bean.Employee;
 import com.yf.erp.bean.Position;
+import com.yf.erp.main.model.Applicate;
 
 public class JsonUtil {
 
@@ -137,6 +138,16 @@ public class JsonUtil {
 		}
 		modelData.add("viewInfo", models);
 		object.add("data", modelData);
+		return object.toString();
+	}
+
+	public static String getUpdateInfo(Applicate app) {
+		JsonObject object=new JsonObject();
+		object.addProperty("versionCode", app.getVersionCode());
+		object.addProperty("versionName", app.getVersionName());
+		object.addProperty("url", app.getUrl());
+		object.addProperty("content", app.getContent());
+		object.addProperty("mustUpdate", app.isMustUpdate());
 		return object.toString();
 	}
 
