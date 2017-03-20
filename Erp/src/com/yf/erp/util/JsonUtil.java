@@ -141,6 +141,10 @@ public class JsonUtil {
 		return object.toString();
 	}
 
+	/**
+	 * @param app
+	 * @return  
+	 */
 	public static String getUpdateInfo(Applicate app) {
 		JsonObject object=new JsonObject();
 		object.addProperty("versionCode", app.getVersionCode());

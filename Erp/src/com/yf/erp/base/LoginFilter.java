@@ -8,17 +8,13 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+public class LoginFilter implements Filter{
 
-/**
- * @author 杨朗飞
- *2016年11月4日  下午3:14:42
- *   过滤参数编码
- */
-public class CharSetFilter implements Filter {
-	private String encoding;
 	@Override
 	public void destroy() {
-		//销毁
+		//TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -26,16 +22,22 @@ public class CharSetFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req=(HttpServletRequest) request;
 		HttpServletResponse resp=(HttpServletResponse) response;
-		//对请求 返回参数进行编码设置
-		req.setCharacterEncoding(encoding!=null ? encoding : "UTF-8");
-		resp.setCharacterEncoding(encoding!=null ? encoding : "UTF-8");
-		chain.doFilter(request, response);
+		HttpSession session = req.getSession(false);
+		if(session==null || session.getAttribute("user")==null){
+			//未登录
+			req.getRequestDispatcher("/admin/login.html").forward(req, resp);
+			
+		}else{
+			resp.setContentType("text/html;charset=UTF-8");
+			chain.doFilter(request, response);
+		}
+		
+		
 	}
 
 	@Override
-	public void init(FilterConfig filtConfig) throws ServletException {
-		//初始化
-		encoding=filtConfig.getInitParameter(encoding);
+	public void init(FilterConfig config) throws ServletException {
+		// TODO Auto-generated method stub
 		
 	}
 

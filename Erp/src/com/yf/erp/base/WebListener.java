@@ -1,5 +1,6 @@
 package com.yf.erp.base;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -47,7 +48,14 @@ public class WebListener implements ServletContextListener {
 	public void contextInitialized(ServletContextEvent config) {
 		//≥ı ºªØtomcat
 		System.out.println("∆Ù∂Ø   web  ");
+		ServletContext context = config.getServletContext();
+		
+		
+		
+		
 	}
+	
+	
 	
 
 }
