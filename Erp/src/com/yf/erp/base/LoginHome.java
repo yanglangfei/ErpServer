@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class LoginHome extends HttpServlet{
 	private static final long serialVersionUID = 1L;
@@ -20,9 +21,9 @@ public class LoginHome extends HttpServlet{
 		String password=request.getParameter("password");
 		if(userName.equals("fengerous")){
 			if(password.equals("111111")){
-				
-				
-				
+				// µÇÂ¼³É¹¦
+				HttpSession session = request.getSession();
+				session.setAttribute("user", userName);
 			}
 		}
 	}

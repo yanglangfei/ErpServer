@@ -341,6 +341,14 @@
     <servlet-name>OnLine</servlet-name>
     <url-pattern>/erp/OnLine</url-pattern>
   </servlet-mapping>
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.yf.erp.base.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/pages/*</url-pattern>
+    </filter-mapping>
 
 
 

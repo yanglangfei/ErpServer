@@ -37,7 +37,7 @@ public class OnLine extends HttpServlet {
 		Cookie[] cookies = request.getCookies();
 		HttpSession session = request.getSession();
 		String top = request.getParameter("top");
-		LogUtil.print(top+">.>", true);
+		LogUtil.print(top+">>>>", true);
 		if(cookies!=null){
 			for (Cookie cookie : cookies) {
 				String name = cookie.getName();
