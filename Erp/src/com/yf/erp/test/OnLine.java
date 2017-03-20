@@ -17,6 +17,7 @@ import org.apache.http.util.TextUtils;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.yf.erp.bean.MessageObject;
+import com.yf.erp.util.LogUtil;
 import com.yf.erp.util.StringUtil;
 /**
  * @author ÑîÀÊ·É
@@ -36,6 +37,7 @@ public class OnLine extends HttpServlet {
 		Cookie[] cookies = request.getCookies();
 		HttpSession session = request.getSession();
 		String top = request.getParameter("top");
+		LogUtil.print(top+">.>", true);
 		if(cookies!=null){
 			for (Cookie cookie : cookies) {
 				String name = cookie.getName();
@@ -50,14 +52,14 @@ public class OnLine extends HttpServlet {
 		if(parameterNames!=null){
 			while (parameterNames.hasMoreElements()) {
 				String paramterName = (String) parameterNames.nextElement();
-				System.out.println("name:"+paramterName+"  value£º"+request.getParameter(paramterName));
+				LogUtil.print("name:"+paramterName+"  value£º"+request.getParameter(paramterName), true);
 			}
 		}
 		
 		if(headerNames!=null){
 			while (headerNames.hasMoreElements()) {
 				String name = (String) headerNames.nextElement();
-				System.out.println("name="+name+"  value="+request.getHeader(name));
+				LogUtil.print("name="+name+"  value="+request.getHeader(name), true);
 			}
 		}
 		
@@ -83,7 +85,6 @@ public class OnLine extends HttpServlet {
 			object.addProperty("name", u);
 			array.add(object);
 		}
-		
 		
 		
 		//out.println(array.toString());
