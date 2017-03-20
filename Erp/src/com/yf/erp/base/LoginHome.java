@@ -24,6 +24,9 @@ public class LoginHome extends HttpServlet{
 				// µÇÂ¼³É¹¦
 				HttpSession session = request.getSession();
 				session.setAttribute("user", userName);
+			}else{
+				//  µÇÂ¼Ê§°Ü
+				request.getRequestDispatcher("").forward(request, response);
 			}
 		}
 	}

@@ -89,7 +89,7 @@ public class OnLine extends HttpServlet {
 		
 		//out.println(array.toString());
 		
-		List<MessageObject> message = HandleMessage.getMessage(getServletContext(), StringUtil.isNotNull(top)&&StringUtil.isInteger(top) ? Integer.parseInt(top) : 0);
+		List<MessageObject> message = HandleMessage.getMessage(getServletContext(), StringUtil.isNotNull(top)&&StringUtil.isInteger(top) ? Integer.parseInt(top) : 0,true);
 		JsonArray msgArray=new JsonArray();
 		for (MessageObject messageObject : message) {
 			JsonObject object=new JsonObject();

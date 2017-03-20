@@ -1,16 +1,12 @@
 package com.yf.erp.test;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.ServletContext;
-
-import com.sun.mail.handlers.message_rfc822;
 import com.yf.erp.bean.MessageObject;
-
 @SuppressWarnings("unchecked")
 public class HandleMessage {
 	/**
-	 * @param context
+	 * @param context  上下文
 	 * @return 获取新id
 	 */
 	public static  int getTopId(ServletContext context){
@@ -23,8 +19,8 @@ public class HandleMessage {
 	
 	
 	/**
-	 * @param context
-	 * @param msgObj
+	 * @param context  上下文
+	 * @param msgObj   消息对象
 	 * @return 存储消息
 	 * 
 	 */
@@ -39,11 +35,11 @@ public class HandleMessage {
 	
 	
 	/**
-	 * @param context
-	 * @param top
+	 * @param context  上下文
+	 * @param top   最大的消息id
 	 * @return  获取消息
 	 */
-	public static List<MessageObject>  getMessage(ServletContext context,int top){
+	public static List<MessageObject>  getMessage(ServletContext context,int top,boolean isCheck){
 		List<MessageObject> attribute = (List<MessageObject>) context.getAttribute("msgList");
 		List<MessageObject>   topMessage=new ArrayList<MessageObject>();
 		if(attribute==null){
