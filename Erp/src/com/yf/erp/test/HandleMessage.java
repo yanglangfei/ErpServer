@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 
+import com.sun.mail.handlers.message_rfc822;
 import com.yf.erp.bean.MessageObject;
 
 @SuppressWarnings("unchecked")
@@ -58,10 +59,4 @@ public class HandleMessage {
 		}
 	}
 	
-	
-	
-	
-	
-	
-
 }

@@ -17,10 +17,10 @@ import org.apache.http.util.TextUtils;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.yf.erp.bean.MessageObject;
+import com.yf.erp.util.StringUtil;
 /**
  * @author 杨朗飞
  *2017年3月20日  下午1:48:39
- *
  *  
  */
 public class OnLine extends HttpServlet {
@@ -35,27 +35,13 @@ public class OnLine extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		Cookie[] cookies = request.getCookies();
 		HttpSession session = request.getSession();
+		String top = request.getParameter("top");
 		if(cookies!=null){
 			for (Cookie cookie : cookies) {
 				String name = cookie.getName();
 				String value = cookie.getValue();
-				
-				
 			}
-			
 		}
-		
-		/*if(session.isNew()){
-			//  new session
-		}else{
-			//  old session
-			List<String> attribute = (List<String>) session.getAttribute("list");
-			
-			attribute.add(0, "hello");
-			
-			
-		}*/
-		
 		
 		//获取所有参数名称
 		Enumeration<String> parameterNames = request.getParameterNames();
@@ -75,7 +61,6 @@ public class OnLine extends HttpServlet {
 			}
 		}
 		
-		System.out.println("update:"+getLastModified(request));
 		
 		
 		String user=request.getParameter("user");
@@ -101,10 +86,9 @@ public class OnLine extends HttpServlet {
 		
 		
 		
-		
 		//out.println(array.toString());
 		
-		List<MessageObject> message = HandleMessage.getMessage(getServletContext(), 0);
+		List<MessageObject> message = HandleMessage.getMessage(getServletContext(), StringUtil.isNotNull(top)&&StringUtil.isInteger(top) ? Integer.parseInt(top) : 0);
 		JsonArray msgArray=new JsonArray();
 		for (MessageObject messageObject : message) {
 			JsonObject object=new JsonObject();
@@ -118,10 +102,4 @@ public class OnLine extends HttpServlet {
 		out.close();
 	}
 	
-	@Override
-	protected long getLastModified(HttpServletRequest req) {
-		//最后一次修改数据的时间
-		return super.getLastModified(req);
-	}
-
 }
